@@ -24,7 +24,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 
-const ETH_LOGO = "/eth-logo.svg";
+const publicBasePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const publicAsset = (path: string) => `${publicBasePath}${path}`;
+const ETH_LOGO = publicAsset("/eth-logo.svg");
 const STORAGE_KEY = "cl20-simulated-lockers-v1";
 
 type NetworkId = "sepolia" | "mainnet";
@@ -964,7 +966,7 @@ function TokenPill({ symbol }: { symbol: "ETH" | "2027" }) {
       {symbol === "ETH" ? (
         <Image src={ETH_LOGO} alt="ETH" width={24} height={24} className="rounded-full shrink-0" />
       ) : (
-        <Image src="/logo-2027.png" alt="2027" width={24} height={24} className="rounded-full shrink-0 object-cover" />
+        <Image src={publicAsset("/logo-2027.png")} alt="2027" width={24} height={24} className="rounded-full shrink-0 object-cover" />
       )}
       <span className="font-semibold text-foreground text-sm">{symbol}</span>
     </div>
