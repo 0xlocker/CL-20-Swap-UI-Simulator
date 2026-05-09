@@ -13,6 +13,9 @@ const nextConfig = {
   assetPrefix: publicBasePath,
   trailingSlash: true,
   devIndicators: false,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: publicBasePath,
+  },
   turbopack: {
     root: __dirname,
   },
